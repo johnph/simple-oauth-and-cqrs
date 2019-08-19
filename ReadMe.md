@@ -56,7 +56,7 @@ Just in case if the above given url doesn't work and you want to publish the cod
   "AuthServer": "<your Auth Server base Url>",
 ```
 
-This sample doesn't have MVC App in the front-end with UI. It's just only the back-end part. Will add ASP.NET Core MVC sample app soon. For now, consider using Postman or any REST API client tool to connect to Auth and Resource Server to see this sample working working.
+This sample doesn't have MVC App in the front-end with UI. It's just only the back-end part. Will add ASP.NET Core MVC sample app soon. For now, consider using Postman or any REST API client tool to connect to Auth and Resource Server to see this sample working.
 
 ---
 
