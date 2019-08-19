@@ -34,10 +34,10 @@ https://johndev-authserver.azurewebsites.net/connect/token
 
 #### *Client Configuration to request token from Identity Server*
 
-grant_type:client_credentials
-client_id:oauthClient
-client_secret:superSecretPassword
-scope:api.execute
+grant_type:client_credentials<br/>
+client_id:oauthClient<br/>
+client_secret:superSecretPassword<br/>
+scope:api.execute<br/>
 
 #### Resource Server & Api documentation:
 https://johndev-resourceserver.azurewebsites.net/swagger
@@ -46,8 +46,8 @@ https://johndev-resourceserver.azurewebsites.net/swagger
 
 Just in case if the above given url doesn't work and you want to publish the code in Azure App Service or run it in local, here is how you can do.
 
-1. Publish the database script to create the sql table
-2. configure the SQL connection string and Auth Server Url in appsettings.json. That's it. You are good to go.
+1. Create a empty Database and Publish the db script to create the sql table. Script is in the Database project.
+2. configure the SQL connection string and Auth Server Url in Resource server appsettings.json. That's it. You are good to go.
 
 ```json
   "ConnectionStrings": {
@@ -56,7 +56,7 @@ Just in case if the above given url doesn't work and you want to publish the cod
   "AuthServer": "<your Auth Server base Url>",
 ```
 
-Consider using Postman or any REST API client tool to connect to Auth and Resource Server.
+This sample doesn't have MVC App in the front-end with UI. It's just only the back-end part. Will add ASP.NET Core MVC sample app soon. For now, consider using Postman or any REST API client tool to connect to Auth and Resource Server to see this sample working working.
 
 ---
 
