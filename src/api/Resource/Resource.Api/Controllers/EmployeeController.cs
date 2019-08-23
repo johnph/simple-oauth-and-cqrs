@@ -9,7 +9,7 @@
     using System.Threading.Tasks;
 
     [Authorize(Policy = "ApiExecute")]
-    [Route("api/[controller]")]
+    [Route("api/employee")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
@@ -30,8 +30,15 @@
         [HttpGet("{employeeId}")]
         public async Task<IActionResult> Read([FromRoute] Guid employeeId)
         {
-            var orderDetails = await _mediator.Send(new EmployeeReadQuery(employeeId));
-            return Ok(orderDetails);
+            var employees = await _mediator.Send(new EmployeeReadQuery(employeeId));
+            return Ok(employees);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ReadAll()
+        {
+            var employees = await _mediator.Send(new EmployeeReadAllQuery());
+            return Ok(employees);
         }
 
         [HttpPut("{employeeId}")]
