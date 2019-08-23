@@ -23,6 +23,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SimpleCQRS", "src\database\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0403298A-BA71-4C34-AB5C-2867557687EE}"
 	ProjectSection(SolutionItems) = preProject
+		Employee.postman_collection.json = Employee.postman_collection.json
 		ReadMe.md = ReadMe.md
 	EndProjectSection
 EndProject

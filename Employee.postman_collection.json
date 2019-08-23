@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "f3d578a4-01e9-467e-a97d-5c2fedc2f374",
+		"name": "Employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token Endpoint - Client",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "oauthClient",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "superSecretPassword",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "api.execute",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev-authserver.azurewebsites.net/connect/token",
+					"protocol": "https",
+					"host": [
+						"dev-authserver",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Enpoint - Pwd",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "resourceClient",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "api.execute",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "scott",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dev-authserver.azurewebsites.net/connect/token",
+					"protocol": "https",
+					"host": [
+						"dev-authserver",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjIyOTQxMzVjZTFlMjRhZGY5Mzk0MzFjMjk3OWNiODdmIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NjY1NDYyMDksImV4cCI6MTU2NjU0OTgwOSwiaXNzIjoiaHR0cHM6Ly9kZXYtYXV0aHNlcnZlci5henVyZXdlYnNpdGVzLm5ldCIsImF1ZCI6WyJodHRwczovL2Rldi1hdXRoc2VydmVyLmF6dXJld2Vic2l0ZXMubmV0L3Jlc291cmNlcyIsInJlc291cmNlYXBpIl0sImNsaWVudF9pZCI6Im9hdXRoQ2xpZW50Iiwic2NvcGUiOlsiYXBpLmV4ZWN1dGUiXX0.aTcY_qXaVKeQ2m17QXlIpKzgjabBvjyRLVd2eVtw4ZqsSqWCGwN5pyJFD59xAC0SJcy8Q9dzj6uoR3FwZ5EgT1A5h78LcpTy_dQj_lUzGEgjaPC-83tDi_YZgCUwAUO2NCwmdS96K2-7sV6l6bdIIi96GE2DE6WwKjTjlObshBeueb0Wk7Em3I92tZSUVGzBbMwdCpR2vimLKFglZxaG5OUzZPYO1Wjbl_WQWkjLBq-gfgJ57qKiLzrsoJMcZ3elLguqOhIjYSy6MEaZe8ZWDLZ1hrVkCI6-41_4K45Xv0xoZRvXLvf0AxJU_yZp1iAxjSWev8HNfGj0mMwyj3CK3g",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"john\",\r\n  \"address\": \"wellington\",\r\n  \"email\": \"johnp@email.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://johndev-resourceserver.azurewebsites.net/api/Employee",
+					"protocol": "https",
+					"host": [
+						"johndev-resourceserver",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"Employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjY5NThiMTZhN2ExZDhjMTgwNzgyZGYzMmJiZWE0ZTUwIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NjY1NDU2MTQsImV4cCI6MTU2NjU0OTIxNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJyZXNvdXJjZWFwaSJdLCJjbGllbnRfaWQiOiJvYXV0aENsaWVudCIsInNjb3BlIjpbImFwaS5leGVjdXRlIl19.luCQbTmmDwp03Ncsmo376woD5h7YHeY9XXb7e618ecLnwhaFsKMwpirlBya-IJUTcd24SGCfygI1n40Zk0OX8f_Iip1HV3_Su64-Zia49qktKF4sWtXoHM1jOEx2FnxD66AsfbMEM8TB_NeHSOnBtLR8_fRuM0NAGNCkQr5vJm1wsO7W0UGP4CqS1akBxq8cCzGZsYGohxt5rSY1KKB1oeCqWhvtm4RmE3BT4n8m64TWj6zFqe46f4GxHjsh5RCNrdIIlKtQ3JXszhvGwAHqF0Od-TQWiED0oTKV-tlvHVBxtf-4ofXo-l8O0l-axeTXSqhO7SEYDwcv5Xn9IIPtDA",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"john\",\r\n  \"address\": \"wellington\",\r\n  \"email\": \"johnp@email.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://johndev-resourceserver.azurewebsites.net/api/Employee/79ac12bf-dc0a-46dd-a8e3-4205da84ebd7",
+					"protocol": "https",
+					"host": [
+						"johndev-resourceserver",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"Employee",
+						"79ac12bf-dc0a-46dd-a8e3-4205da84ebd7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjIyOTQxMzVjZTFlMjRhZGY5Mzk0MzFjMjk3OWNiODdmIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NjY1NDYyMDksImV4cCI6MTU2NjU0OTgwOSwiaXNzIjoiaHR0cHM6Ly9kZXYtYXV0aHNlcnZlci5henVyZXdlYnNpdGVzLm5ldCIsImF1ZCI6WyJodHRwczovL2Rldi1hdXRoc2VydmVyLmF6dXJld2Vic2l0ZXMubmV0L3Jlc291cmNlcyIsInJlc291cmNlYXBpIl0sImNsaWVudF9pZCI6Im9hdXRoQ2xpZW50Iiwic2NvcGUiOlsiYXBpLmV4ZWN1dGUiXX0.aTcY_qXaVKeQ2m17QXlIpKzgjabBvjyRLVd2eVtw4ZqsSqWCGwN5pyJFD59xAC0SJcy8Q9dzj6uoR3FwZ5EgT1A5h78LcpTy_dQj_lUzGEgjaPC-83tDi_YZgCUwAUO2NCwmdS96K2-7sV6l6bdIIi96GE2DE6WwKjTjlObshBeueb0Wk7Em3I92tZSUVGzBbMwdCpR2vimLKFglZxaG5OUzZPYO1Wjbl_WQWkjLBq-gfgJ57qKiLzrsoJMcZ3elLguqOhIjYSy6MEaZe8ZWDLZ1hrVkCI6-41_4K45Xv0xoZRvXLvf0AxJU_yZp1iAxjSWev8HNfGj0mMwyj3CK3g",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"john\",\r\n  \"address\": \"wellington, Arandale\",\r\n  \"email\": \"johnp@email.com\"\r\n}"
+				},
+				"url": {
+					"raw": "https://johndev-resourceserver.azurewebsites.net/api/Employee/3C5088DC-6DAB-4375-B12D-B946D9431EA6",
+					"protocol": "https",
+					"host": [
+						"johndev-resourceserver",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"Employee",
+						"3C5088DC-6DAB-4375-B12D-B946D9431EA6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjIyOTQxMzVjZTFlMjRhZGY5Mzk0MzFjMjk3OWNiODdmIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1NjY1NDYyMDksImV4cCI6MTU2NjU0OTgwOSwiaXNzIjoiaHR0cHM6Ly9kZXYtYXV0aHNlcnZlci5henVyZXdlYnNpdGVzLm5ldCIsImF1ZCI6WyJodHRwczovL2Rldi1hdXRoc2VydmVyLmF6dXJld2Vic2l0ZXMubmV0L3Jlc291cmNlcyIsInJlc291cmNlYXBpIl0sImNsaWVudF9pZCI6Im9hdXRoQ2xpZW50Iiwic2NvcGUiOlsiYXBpLmV4ZWN1dGUiXX0.aTcY_qXaVKeQ2m17QXlIpKzgjabBvjyRLVd2eVtw4ZqsSqWCGwN5pyJFD59xAC0SJcy8Q9dzj6uoR3FwZ5EgT1A5h78LcpTy_dQj_lUzGEgjaPC-83tDi_YZgCUwAUO2NCwmdS96K2-7sV6l6bdIIi96GE2DE6WwKjTjlObshBeueb0Wk7Em3I92tZSUVGzBbMwdCpR2vimLKFglZxaG5OUzZPYO1Wjbl_WQWkjLBq-gfgJ57qKiLzrsoJMcZ3elLguqOhIjYSy6MEaZe8ZWDLZ1hrVkCI6-41_4K45Xv0xoZRvXLvf0AxJU_yZp1iAxjSWev8HNfGj0mMwyj3CK3g",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://johndev-resourceserver.azurewebsites.net/api/Employee/3C5088DC-6DAB-4375-B12D-B946D9431EA6",
+					"protocol": "https",
+					"host": [
+						"johndev-resourceserver",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"Employee",
+						"3C5088DC-6DAB-4375-B12D-B946D9431EA6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

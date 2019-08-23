@@ -1,6 +1,6 @@
 ## Simple OAuth2 and CQRS sample
 
-Two sample applications created using .Net Core 2.2 web api project. One of the application is a authentication Server implemented using IdentityServer4 as Open-Id Connect/OAuth2 Provider and the other application is a resource server implemented using CQRS pattern. Below shown diagram is a high level picture of what's in the sample.
+Two sample applications created using .Net Core 2.2 web api project. One of the application is a authentication Server implemented using IdentityServer4 as Open-Id Connect/OAuth2 Provider and the other application is a resource server implemented using CQRS pattern. Below shown diagram is a high level picture of what's in the sample. Consider using Postman or any REST API client tool to connect to Auth and Resource Server to see this sample working.
 
 ![](https://i.imgur.com/mMGK8IE.png)
 
@@ -27,7 +27,7 @@ A simple "Employee" entity/object is used at the resource server api to implemen
 
 ### Where is it hosted?
 
-Both Web Api projects are published and hosted in Azure App Service - shared infrastructure at the below given urls. Resource server has swagger for API documentation.
+Both Web Api projects are published and hosted in Azure App Service - shared infrastructure at the below given urls. Resource server has swagger for API documentation. Auth Server is configured with in Memory clients, resources and users
 
 #### Auth Server & Access Token URL:
 https://johndev-authserver.azurewebsites.net/connect/token
@@ -44,10 +44,8 @@ https://johndev-resourceserver.azurewebsites.net/swagger
 
 ### How to run the application?
 
-Just in case if the above given url doesn't work and you want to publish the code in Azure App Service or run it in local, here is how you can do.
-
 1. Create a empty Database and Publish the db script to create the sql table. Script is in the Database project.
-2. configure the SQL connection string and Auth Server Url in Resource server appsettings.json. That's it. You are good to go.
+2. Configure the SQL connection string and Auth Server Url in Resource server appsettings.json. That's it. You are good to go.
 
 ```json
   "ConnectionStrings": {
@@ -55,9 +53,6 @@ Just in case if the above given url doesn't work and you want to publish the cod
   },
   "AuthServer": "<your Auth Server base Url>",
 ```
-
-This sample doesn't have MVC App in the front-end with UI. It's just only the back-end part. Will add ASP.NET Core MVC sample app soon. For now, consider using Postman or any REST API client tool to connect to Auth and Resource Server to see this sample working working.
-
 ---
 
 ### References
