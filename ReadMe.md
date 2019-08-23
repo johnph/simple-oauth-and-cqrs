@@ -25,6 +25,8 @@ Two sample applications created using .Net Core 2.2 web api project. One of the 
 
 A simple "Employee" entity/object is used at the resource server api to implement 4 basic CRUD operation (Create, Read, Update, Delete). The application follows CQRS pattern. Commands such as Create, Update and Delete uses Entity Framework Core for database connectivity and Query Operation such as Read (Get) uses Dapper for database access.
 
+![CQRS](https://i.imgur.com/wTLgmfX.png)
+
 ### Where is it hosted?
 
 Both Web Api projects are published and hosted in Azure App Service - shared infrastructure at the below given urls. Resource server has swagger for API documentation. Auth Server is configured with in Memory clients, resources and users
