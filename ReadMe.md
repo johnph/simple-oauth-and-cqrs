@@ -2,7 +2,7 @@
 
 Two sample applications created using .Net Core 2.2 web api project. One of the application is a authentication Server implemented using IdentityServer4 as Open-Id Connect/OAuth2 Provider and the other application is a resource server implemented using CQRS pattern. Below shown diagram is a high level picture of what's in the sample. 
 
-![](https://i.imgur.com/mMGK8IE.png)
+![High Level Design](https://i.imgur.com/O7uOyvF.png)
 
 A .Net Core 2.2 MVC Web app added to the front-end that communicates with the Auth and Resource server. This web app supports login via google and login via registering the user through ASP.Net Core Identity membership system. For both the login methods (google or by providing registered username/password), Auth server is the one that issues security token to access the protected resources.
 
@@ -93,7 +93,7 @@ https://johndev-webapp.azurewebsites.net
 
 ![](https://i.imgur.com/hB27hqi.png)
 
-### Try it out
+### Try out
 
 https://johndev-webapp.azurewebsites.net
 
